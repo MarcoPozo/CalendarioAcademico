@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon ./src/index.js",
+    "dev": "set NODE_OPTIONS=--no-deprecation && nodemon ./src/index.js",
     "build:css": "npx @tailwindcss/cli -i ./src/public/css/input.css -o ./src/public/css/output.css --watch"
   },
   "keywords": [],
