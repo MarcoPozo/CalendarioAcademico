@@ -3,6 +3,9 @@ import express from "express";
 import { dirname, join } from "path";
 import { fileURLToPath } from "url";
 import indexRouter from "./routes/router.js";
+import flash from "connect-flash";
+import { sessionMiddleware } from "./middlewares/ssessionMiddleware.js";
+import { setFlashMessage } from "./middlewares/flashMiddleware.js";
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -16,6 +19,10 @@ app.set("view engine", "ejs");
 app.use(express.static(join(__dirname, "public")));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
+app.use(sessionMiddleware);
+app.use(flash());
+app.use(setFlashMessage);
 
 // Routes
 app.use(indexRouter);
