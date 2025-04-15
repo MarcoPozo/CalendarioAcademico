@@ -6,12 +6,11 @@
   --font-ubuntu: "Ubuntu", sans-serif;
 
   /* Colors */
-  --color-rojo-intenso: #d21d3c;
-  --color-rojo-oscuro: #8a0e23;
-  --color-azul-petroleo: #0c1c2b;
-  --color-azul-medio: #172d3f;
-  --color-negro-azulado: #101820;
-  --color-gris-azulado: #a3b2c1;
-  --color-blanco: #ffffff;
-  --color-verde-menta: #2ce6b5;
+  --color-primario: #2d5a80;
+  --color-secundario: #89c2d9;
+  --color-fondo-oscuro: #1c1f26;
+  --color-fondo-claro: #f5f7fa;
+  --color-texto: #2a2a2a;
+  --color-exito: #4caf50;
+  --color-error: #f44336;
 }
