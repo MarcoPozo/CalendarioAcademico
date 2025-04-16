@@ -1,15 +1,15 @@
 <%- include("partials/header") %>
 
-<section class="flex flex-col items-center justify-center text-center mt-20 px-4">
-  <h1 class="text-4xl md:text-5xl font-bold text-[var(--color-primario)] mb-4">Calendario Académico</h1>
-  <p class="text-lg text-gray-600 max-w-2xl">
-    Consulta las fechas importantes del semestre, eventos institucionales, feriados y más.
-  </p>
+<main class="max-w-5xl mx-auto p-6">
+  <h1 class="text-3xl font-bold text-[var(--color-primario)] mb-6">Calendario Académico</h1>
 
-  <!-- Calendario dinámico irá aquí -->
-  <div class="my-10 w-full max-w-4xl min-h-[400px] border border-gray-300 rounded-lg p-4 bg-white shadow-sm">
-    <p class="text-center text-gray-400">Aquí se renderizará el calendario próximamente.</p>
-  </div>
-</section>
+  <div id="calendar"></div>
+</main>
 
+<script>
+  window.eventosData = <%- JSON.stringify(eventos) %>;
+</script>
+<!-- Calendar JS -->
+<script src="/js/calendar.js"></script>
+<!-- Flash Messages -->
 <%- include("partials/footer") %>
