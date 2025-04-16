@@ -7,12 +7,11 @@ document.addEventListener("DOMContentLoaded", function () {
     locale: "es",
     height: "auto",
     events: eventos,
-    eventDisplay: "block",
     dayMaxEventRows: true,
     headerToolbar: {
-      left: "prev,next today",
-      center: "title",
-      right: "",
+      left: "title",
+      center: "",
+      right: "today prev,next",
     },
   });
 

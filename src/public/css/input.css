@@ -18,10 +18,3 @@
   --color-boton-cta: #38bdf8;
   --color-hover-glow: #67e8f9;
 }
-
-/* Fuente general */
-body {
-  font-family: var(--font-ubuntu);
-  background-color: var(--color-fondo-principal);
-  color: var(--color-texto-principal);
-}

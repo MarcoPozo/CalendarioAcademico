@@ -5,10 +5,10 @@ h3 {
   letter-spacing: 0.05em;
 }
 
-section,
-main {
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
+body {
+  font-family: var(--font-ubuntu);
+  color: var(--color-texto-principal);
+  background-color: var(--color-fondo-principal);
 }
 
 a {
