@@ -2,12 +2,12 @@ import { db } from "../config/db.js";
 
 export const obtenerEventosCalendario = async () => {
   const [rows] = await db.execute(`
-    SELECT id, fecha AS start, titulo AS title, color
+    SELECT 
+      id, 
+      fecha AS start, 
+      titulo AS title, 
+      color
     FROM eventos
   `);
-
-  return rows.map((ev) => ({
-    ...ev,
-    color: ev.color || "#38bdf8",
-  }));
+  return rows;
 };

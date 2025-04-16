@@ -13,6 +13,16 @@ document.addEventListener("DOMContentLoaded", function () {
       center: "",
       right: "today prev,next",
     },
+
+    eventDidMount: function (info) {
+      const dayEl = info.el.closest(".fc-daygrid-day");
+      if (dayEl && info.event.backgroundColor) {
+        dayEl.style.backgroundColor = info.event.backgroundColor;
+        info.el.style.backgroundColor = "transparent";
+        info.el.style.color = "var(--color-texto-principal)";
+        info.el.style.fontWeight = "bold";
+      }
+    },
   });
 
   calendar.render();
