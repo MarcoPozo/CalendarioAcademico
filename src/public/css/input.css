@@ -1,16 +1,27 @@
 @import url("https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 @import "tailwindcss";
 
 @theme {
   /* Fonts */
   --font-ubuntu: "Ubuntu", sans-serif;
+  --font-titulo: "Bebas Neue", sans-serif;
 
   /* Colors */
-  --color-primario: #2d5a80;
-  --color-secundario: #89c2d9;
-  --color-fondo-oscuro: #1c1f26;
-  --color-fondo-claro: #f5f7fa;
-  --color-texto: #2a2a2a;
-  --color-exito: #4caf50;
-  --color-error: #f44336;
+  --color-fondo-principal: #0b0f19;
+  --color-fondo-secundario: #1f2937;
+  --color-lunar-principal: #d1d5db;
+  --color-acento-lunar: #38bdf8;
+  --color-acento-cosmico: #8b5cf6;
+  --color-texto-principal: #f9fafb;
+  --color-texto-secundario: #94a3b8;
+  --color-boton-cta: #38bdf8;
+  --color-hover-glow: #67e8f9;
+}
+
+/* Fuente general */
+body {
+  font-family: var(--font-ubuntu);
+  background-color: var(--color-fondo-principal);
+  color: var(--color-texto-principal);
 }

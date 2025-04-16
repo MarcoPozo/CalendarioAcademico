@@ -1,20 +1,22 @@
 <%- include("partials/header") %>
 
-<section class="flex justify-center items-center min-h-screen bg-[var(--color-fondo-claro)]">
-  <form action="/login" method="POST" class="bg-white p-8 rounded-lg shadow-md w-full max-w-md border border-gray-200">
-    <h2 class="text-2xl font-bold text-center text-[var(--color-primario)] mb-6">Iniciar Sesión</h2>
+<section class="flex justify-center items-center min-h-screen bg-[var(--color-fondo-principal)]">
+  <form action="/login" method="POST" class="bg-[var(--color-fondo-secundario)] p-8 rounded-lg shadow-soft w-full max-w-md space-y-6">
+    <h2 class="text-3xl font-titulo text-center text-[var(--color-acento-cosmico)]">Iniciar Sesión</h2>
 
-    <div class="mb-4">
-      <label for="username" class="block text-sm mb-1">Usuario</label>
-      <input type="text" name="username" id="username" required class="w-full px-3 py-2 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[var(--color-secundario)]" autocomplete="off" />
+    <div>
+      <label for="username" class="block text-sm mb-1 text-[var(--color-texto-secundario)]">Usuario</label>
+      <input type="text" name="username" id="username" required class="w-full px-3 py-2 rounded bg-[var(--color-fondo-principal)] text-white border border-gray-500 focus:outline-none focus:ring-2 focus:ring-[var(--color-acento-lunar)]">
     </div>
 
-    <div class="mb-6">
-      <label for="password" class="block text-sm mb-1">Contraseña</label>
-      <input type="password" name="password" id="password" required class="w-full px-3 py-2 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[var(--color-secundario)]" />
+    <div>
+      <label for="password" class="block text-sm mb-1 text-[var(--color-texto-secundario)]">Contraseña</label>
+      <input type="password" name="password" id="password" required class="w-full px-3 py-2 rounded bg-[var(--color-fondo-principal)] text-white border border-gray-500 focus:outline-none focus:ring-2 focus:ring-[var(--color-acento-lunar)]">
     </div>
 
-    <button type="submit" class="w-full bg-[var(--color-primario)] hover:bg-[var(--color-secundario)] text-white py-2 rounded transition-colors">Entrar</button>
+    <button type="submit" class="w-full py-2 bg-[var(--color-boton-cta)] hover:bg-[var(--color-hover-glow)] text-white rounded font-bold transition">
+      Entrar
+    </button>
   </form>
 </section>
 
