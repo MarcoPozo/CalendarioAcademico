@@ -87,12 +87,13 @@ button {
   padding: 10px 5px;
 }
 
+.fc-event-title {
+  white-space: normal !important;
+}
+
 /* Responsive */
 
 @media (max-width: 640px) {
-  .fc .fc-toolbar-title {
-    font-size: 1.1rem;
-  }
 
   .fc .fc-button {
     font-size: 0.75rem;
@@ -103,16 +104,30 @@ button {
     font-size: 0.75rem;
   }
 
+  .fc .fc-daygrid-day-frame {
+    min-height: 80px;
+  }
+
+  .fc .fc-toolbar-title {
+    font-size: 1.1rem;
+  }
+
   .fc .fc-event-title {
     font-size: 0.75rem;
+    line-height: 1rem;
   }
 }
 
 @media (max-width: 480px) {
-  table th,
-  table td {
-    padding: 0.5rem;
-    font-size: 0.75rem;
+
+  .fc .fc-daygrid-body-natural .fc-daygrid-day-events{
+    padding: 2px 0;
+  }
+
+  .fc .fc-event-title {
+    font-size: 0.65rem;
+    line-height: 1rem;
+    white-space: normal;
   }
 }
 
