@@ -115,3 +115,21 @@ button {
     font-size: 0.75rem;
   }
 }
+
+/* Animaciones */
+#mobileMenu {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, opacity 0.3s ease;
+  opacity: 0;
+}
+
+#mobileMenu.open {
+  max-height: 500px; /* Suficiente para mostrar contenido */
+  opacity: 1;
+}
+
+#mobileMenu.closing {
+  max-height: 0;
+  opacity: 0;
+}
