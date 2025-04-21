@@ -125,7 +125,7 @@ button {
 }
 
 #mobileMenu.open {
-  max-height: 500px; /* Suficiente para mostrar contenido */
+  max-height: 500px;
   opacity: 1;
 }
 
