@@ -91,10 +91,21 @@ button {
   white-space: normal !important;
 }
 
+.fc-daygrid-dot-event .fc-event-title,
+.fc .fc-daygrid-day-number {
+  text-shadow: 1px 1px 1px #1f2937;
+}
+
+
+.fc-day-today {
+  outline: 3px solid var(--color-texto-principal);
+  box-shadow: 0 0 12px var(--color-texto-principal);
+  outline-offset: -2px;
+  z-index: 1;
+}
+
 /* Responsive */
-
 @media (max-width: 640px) {
-
   .fc .fc-button {
     font-size: 0.75rem;
     padding: 0.3rem 0.6rem;
@@ -119,8 +130,7 @@ button {
 }
 
 @media (max-width: 480px) {
-
-  .fc .fc-daygrid-body-natural .fc-daygrid-day-events{
+  .fc .fc-daygrid-body-natural .fc-daygrid-day-events {
     padding: 2px 0;
   }
 
