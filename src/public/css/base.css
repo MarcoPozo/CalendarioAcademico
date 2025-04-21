@@ -1,3 +1,24 @@
+/* Base */
+img,
+svg,
+video,
+canvas,
+audio,
+iframe,
+embed,
+object {
+  max-width: 100%;
+  height: auto;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  max-width: 100%;
+}
+
 h1,
 h2,
 h3 {
@@ -38,6 +59,12 @@ button {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
+#calendar {
+  width: 100%;
+  min-height: 500px;
+  overflow-x: auto;
+}
+
 /* Eventos */
 #calendar thead {
   background-color: var(--color-fondo-principal);
@@ -58,4 +85,33 @@ button {
   display: flex;
   align-items: center;
   padding: 10px 5px;
+}
+
+/* Responsive */
+
+@media (max-width: 640px) {
+  .fc .fc-toolbar-title {
+    font-size: 1.1rem;
+  }
+
+  .fc .fc-button {
+    font-size: 0.75rem;
+    padding: 0.3rem 0.6rem;
+  }
+
+  .fc .fc-daygrid-day-number {
+    font-size: 0.75rem;
+  }
+
+  .fc .fc-event-title {
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  table th,
+  table td {
+    padding: 0.5rem;
+    font-size: 0.75rem;
+  }
 }

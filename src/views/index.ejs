@@ -1,8 +1,11 @@
 <%- include("partials/header") %>
 
-<main class="container py-10">
-  <h1 class="text-4xl mb-8 text-center font-titulo">Calendario Académico</h1>
-  <div id="calendar" class="bg-[var(--color-fondo-secundario)] p-4 rounded-lg shadow-soft mb-8"></div>
+<main class="max-w-7xl mx-auto p-4 sm:p-6 md:p-8 lg:p-10 xl:p-12">
+  <h1 class="text-3xl sm:text-4xl lg:text-5xl mb-8 text-center font-titulo">Calendario Académico</h1>
+
+  <div class="rounded-lg shadow-soft overflow-x-auto">
+    <div id="calendar" class="rounded-lg shadow-soft overflow-hidden"></div>
+  </div>
 </main>
 
 <script>
