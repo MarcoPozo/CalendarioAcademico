@@ -1,5 +1,4 @@
-<%- include("../partials/header") %>
-<%- include("../partials/navbarAdmin") %>
+<%- include("../partials/header") %> <%- include("../partials/navbarAdmin") %>
 
 <main class="container py-10 space-y-10">
   <h1 class="text-4xl font-titulo text-center mb-5">Gestión de Eventos</h1>
@@ -23,8 +22,7 @@
 
         <!-- Colores favoritos -->
         <div class="flex gap-2 mt-2">
-          <% const favoritos = ["#2D5A80", "#4CAF50", "#F44336"]; %>
-          <% favoritos.forEach(fav => { %>
+          <% const favoritos = ["#2D5A80", "#4CAF50", "#F44336"]; %> <% favoritos.forEach(fav => { %>
           <label class="cursor-pointer">
             <input type="radio" name="colorFavorito" value="<%= fav %>" class="peer hidden" />
             <span class="inline-block w-6 h-6 rounded-full border peer-checked:ring-2 peer-checked:ring-[var(--color-acento-cosmico)]" style="background-color: <%= fav %>"></span>
@@ -36,9 +34,7 @@
       </div>
     </div>
 
-    <button type="submit" class="mt-4 bg-[var(--color-boton-cta)] hover:bg-[var(--color-hover-glow)] text-white px-6 py-2 rounded font-semibold transition">
-      Guardar evento
-    </button>
+    <button type="submit" class="mt-4 bg-[var(--color-boton-cta)] hover:bg-[var(--color-hover-glow)] text-white px-6 py-2 rounded font-semibold transition">Guardar evento</button>
   </form>
 
   <!-- Lista de eventos -->
@@ -56,6 +52,8 @@
             <th class="px-4 py-2">Título</th>
             <th class="px-4 py-2">Color</th>
             <th class="px-4 py-2">Creado</th>
+            <th class="px-4 py-2">Modificado</th>
+            <th class="px-4 py-2">Acciónes</th>
           </tr>
         </thead>
         <tbody>
@@ -73,6 +71,24 @@
             </td>
             <td class="px-4 py-2 text-xs text-[var(--color-texto-secundario)]">
               <%= new Date(evento.created_at).toLocaleDateString("es-EC", { day: "2-digit", month: "2-digit", year: "numeric" }) %>
+            </td>
+            <td class="px-4 py-2 text-xs text-[var(--color-texto-secundario)]">
+              <% if (evento.updated_at.toISOString() !== evento.created_at.toISOString()) { %>
+                <%= new Date(evento.updated_at).toLocaleDateString("es-EC", { day: "2-digit", month: "2-digit", year: "numeric" }) %>
+              <% } else { %>
+                <span class="italic text-gray-500">Sin editar</span>
+              <% } %>
+            </td>
+            <td class="px-4 py-2 space-x-2 flex justify-evenly">
+              <a href="/admin/eventos/<%= evento.id %>/edit" class="text-yellow-400 hover:underline text-xs cursor-pointer m-0">
+                <i class="fa-regular fa-pen-to-square"></i>
+              </a>
+
+              <form action="/admin/eventos/<%= evento.id %>/delete" method="POST" class="inline">
+                <button onclick="return confirm('¿Estás seguro de eliminar este evento?');" class="text-red-500 hover:underline text-xs cursor-pointer">
+                  <i class="fa-solid fa-trash"></i>
+                </button>
+              </form>
             </td>
           </tr>
           <% }) %>

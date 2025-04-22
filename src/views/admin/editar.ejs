@@ -1,0 +1,38 @@
+<%- include("../partials/header") %>
+<%- include("../partials/navbarAdmin") %>
+
+<main class="container py-10 max-w-3xl mx-auto">
+  <h1 class="text-4xl font-titulo text-center mb-6">Editar Evento</h1>
+
+  <form action="/admin/eventos/<%= evento.id %>/edit" method="POST" class="bg-[var(--color-fondo-secundario)] p-6 rounded-lg shadow-soft border border-gray-600 space-y-6">
+    <div class="space-y-4">
+      <div>
+        <label for="fecha" class="block text-sm mb-1 text-[var(--color-texto-secundario)]">Fecha</label>
+        <% const fechaFormateada = new Date(evento.fecha).toISOString().split("T")[0]; %>
+        <input type="date" name="fecha" id="fecha" value="<%= fechaFormateada %>" required class="w-full px-3 py-2 bg-[var(--color-fondo-principal)] border border-gray-600 text-white rounded focus:ring-2 focus:ring-[var(--color-acento-lunar)]" />
+      </div>
+
+      <div>
+        <label for="titulo" class="block text-sm mb-1 text-[var(--color-texto-secundario)]">Título</label>
+        <input type="text" name="titulo" id="titulo" value="<%= evento.titulo %>" required class="w-full px-3 py-2 bg-[var(--color-fondo-principal)] border border-gray-600 text-white rounded focus:ring-2 focus:ring-[var(--color-acento-lunar)]" />
+      </div>
+
+      <div>
+        <label class="block text-sm mb-1 text-[var(--color-texto-secundario)]">Color</label>
+        <input type="color" name="color" value="<%= evento.color %>" class="w-16 h-10 border-0 cursor-pointer rounded" />
+      </div>
+    </div>
+
+    <div class="flex justify-between items-center mt-6">
+      <a href="/admin/eventos" class="text-sm text-gray-400 hover:text-white">
+        <i class="fa-solid fa-arrow-left pr-1"></i> Regresar
+      </a>
+
+      <button type="submit" class="bg-[var(--color-boton-cta)] hover:bg-[var(--color-hover-glow)] text-white px-6 py-2 rounded font-semibold transition">
+        Actualizar evento
+      </button>
+    </div>
+  </form>
+</main>
+
+<%- include("../partials/footer") %>
