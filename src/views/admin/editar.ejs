@@ -19,7 +19,12 @@
 
       <div>
         <label class="block text-sm mb-1 text-[var(--color-texto-secundario)]">Color</label>
-        <input type="color" name="color" value="<%= evento.color %>" class="w-16 h-10 border-0 cursor-pointer rounded" />
+        <input type="color" id="colorPicker" value="<%= evento.color %>" class="w-full h-10 rounded border-0 cursor-pointer" />
+      
+        <!-- Colores favoritos -->
+        <div id="coloresFavoritos" class="flex gap-2 mt-2"></div>
+      
+        <input type="hidden" name="color" id="colorFinal" value="<%= evento.color %>" />
       </div>
     </div>
 
@@ -35,4 +40,7 @@
   </form>
 </main>
 
+<!-- Script Eventos -->
+<script src="/js/eventos.js"></script>
+<!-- Footer -->
 <%- include("../partials/footer") %>

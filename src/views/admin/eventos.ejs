@@ -21,14 +21,12 @@
         <input type="color" id="colorPicker" class="w-full h-10 rounded border-0 cursor-pointer" />
 
         <!-- Colores favoritos -->
-        <div class="flex gap-2 mt-2">
-          <% const favoritos = ["#2D5A80", "#4CAF50", "#F44336"]; %> <% favoritos.forEach(fav => { %>
-          <label class="cursor-pointer">
-            <input type="radio" name="colorFavorito" value="<%= fav %>" class="peer hidden" />
-            <span class="inline-block w-6 h-6 rounded-full border peer-checked:ring-2 peer-checked:ring-[var(--color-acento-cosmico)]" style="background-color: <%= fav %>"></span>
-          </label>
-          <% }) %>
-        </div>
+        <div id="coloresFavoritos" class="flex gap-2 mt-2"></div>
+
+        <!-- Botón para añadir -->
+        <button type="button" onclick="agregarColorFavorito()" class="mt-2 text-xs bg-[var(--color-boton-cta)] text-white px-2 py-1 rounded hover:bg-[var(--color-hover-glow)]">
+          Añadir color favorito
+        </button>
 
         <input type="hidden" name="color" id="colorFinal" />
       </div>
@@ -59,7 +57,14 @@
         <tbody>
           <% eventos.forEach(evento => { %>
           <tr class="border-t border-gray-700 hover:bg-[var(--color-fondo-principal)]">
-            <td class="px-4 py-2"><%= evento.fecha %></td>
+            <td class="px-4 py-2 text-xs text-[var(--color-texto-secundario)]">
+              <%= new Date(evento.fecha).toLocaleDateString("es-EC", {
+                weekday: "long",
+                day: "2-digit",
+                month: "long",
+                year: "numeric"
+              }) %>
+            </td>
             <td class="px-4 py-2"><%= evento.titulo %></td>
             <td class="px-4 py-2 flex items-center gap-2">
               <% if (evento.color && /^#[0-9A-F]{6}$/i.test(evento.color)) { %>
@@ -74,9 +79,9 @@
             </td>
             <td class="px-4 py-2 text-xs text-[var(--color-texto-secundario)]">
               <% if (evento.updated_at.toISOString() !== evento.created_at.toISOString()) { %>
-                <%= new Date(evento.updated_at).toLocaleDateString("es-EC", { day: "2-digit", month: "2-digit", year: "numeric" }) %>
+              <%= new Date(evento.updated_at).toLocaleDateString("es-EC", { day: "2-digit", month: "2-digit", year: "numeric" }) %>
               <% } else { %>
-                <span class="italic text-gray-500">Sin editar</span>
+              <span class="italic text-gray-500">Sin editar</span>
               <% } %>
             </td>
             <td class="px-4 py-2 space-x-2 flex justify-evenly">

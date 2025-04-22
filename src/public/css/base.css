@@ -158,3 +158,19 @@ button {
   max-height: 0;
   opacity: 0;
 }
+
+/* Animaciones */
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+}
+
+.animate-fadeOut {
+  animation: fadeOut 0.3s ease forwards;
+}
