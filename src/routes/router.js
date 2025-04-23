@@ -5,6 +5,7 @@ import { loginValidator } from "../middlewares/authMiddleware.js";
 import { renderDashboard } from "../controllers/adminController.js";
 import { isAuthenticated } from "../middlewares/authenticatedMiddleware.js";
 import { renderEventos, crearEvento, renderEditarEvento, actualizarEvento, eliminarEventoController } from "../controllers/eventosController.js";
+import { importarBaseDeDatos } from "../utils/importDb.js";
 import { eventoValidator } from "../middlewares/eventosMiddleware.js";
 
 const router = Router();
@@ -26,5 +27,16 @@ router.post("/admin/eventos", isAuthenticated, eventoValidator, crearEvento);
 router.get("/admin/eventos/:id/edit", isAuthenticated, renderEditarEvento);
 router.post("/admin/eventos/:id/edit", isAuthenticated, eventoValidator, actualizarEvento);
 router.post("/admin/eventos/:id/delete", isAuthenticated, eliminarEventoController);
+
+// Util DB
+router.get("/admin/importar-db", async (req, res) => {
+  try {
+    const resultado = await importarBaseDeDatos();
+    res.send(resultado);
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("❌ Error al importar la base de datos");
+  }
+});
 
 export default router;

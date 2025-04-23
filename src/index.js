@@ -1,10 +1,5 @@
 import "dotenv/config";
 import express from "express";
-
-/* if (!process.env.SESSION_SECRET) {
-  throw new Error("❌ SESSION_SECRET no está definido. Revisa las variables en Railway.");
-} */
-
 import { dirname, join } from "path";
 import { fileURLToPath } from "url";
 import indexRouter from "./routes/router.js";
