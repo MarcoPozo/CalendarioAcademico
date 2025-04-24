@@ -6,7 +6,7 @@ import dotenv from "dotenv";
 dotenv.config();
 
 export async function importarBaseDeDatos() {
-  const archivoSQL = path.join(process.cwd(), "src", "utils", "eventos_calendario_academico.sql"); // El archivo para importar la db es calendario_academico.sql
+  const archivoSQL = path.join(process.cwd(), "src", "utils", "calendario_academico.sql"); // El archivo para importar la db es calendario_academico.sql
 
   const contenidoSQL = fs.readFileSync(archivoSQL, "utf-8");
 
