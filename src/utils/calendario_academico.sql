@@ -1,11 +1,6 @@
--- phpMyAdmin SQL Dump
 -- version 4.8.0.1
 -- https://www.phpmyadmin.net/
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 23-04-2025 a las 17:43:14
--- Versión del servidor: 10.1.32-MariaDB
--- Versión de PHP: 7.0.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -21,8 +16,8 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `calendario_academico`
 --
-CREATE DATABASE IF NOT EXISTS `calendario_academico` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-USE `calendario_academico`;
+
+
 
 -- --------------------------------------------------------
 
@@ -110,8 +105,8 @@ ALTER TABLE `eventos`
 --
 -- Base de datos: `crud_nodejs`
 --
-CREATE DATABASE IF NOT EXISTS `crud_nodejs` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `crud_nodejs`;
+
+
 
 -- --------------------------------------------------------
 
@@ -156,8 +151,8 @@ ALTER TABLE `users`
 --
 -- Base de datos: `expressdb`
 --
-CREATE DATABASE IF NOT EXISTS `expressdb` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `expressdb`;
+
+
 
 -- --------------------------------------------------------
 
@@ -203,8 +198,8 @@ ALTER TABLE `usuarios`
 --
 -- Base de datos: `gymapp_ms`
 --
-CREATE DATABASE IF NOT EXISTS `gymapp_ms` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `gymapp_ms`;
+
+
 
 -- --------------------------------------------------------
 
@@ -413,8 +408,8 @@ ALTER TABLE `user_roles`
 --
 -- Base de datos: `phpmyadmin`
 --
-CREATE DATABASE IF NOT EXISTS `phpmyadmin` DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;
-USE `phpmyadmin`;
+
+
 
 -- --------------------------------------------------------
 
@@ -850,13 +845,13 @@ ALTER TABLE `pma__savedsearches`
 --
 -- Base de datos: `test`
 --
-CREATE DATABASE IF NOT EXISTS `test` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `test`;
+
+
 --
 -- Base de datos: `todo_app`
 --
-CREATE DATABASE IF NOT EXISTS `todo_app` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `todo_app`;
+
+
 
 -- --------------------------------------------------------
 
@@ -901,8 +896,8 @@ ALTER TABLE `tasks`
 --
 -- Base de datos: `usuarios_db`
 --
-CREATE DATABASE IF NOT EXISTS `usuarios_db` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `usuarios_db`;
+
+
 
 -- --------------------------------------------------------
 
