@@ -1,77 +1,23 @@
-
 # 📅 Calendario Académico
 
-Sistema web de calendario académico desarrollado con Node.js, Express y MySQL. Permite gestionar eventos académicos con una interfaz moderna, responsiva y visualmente atractiva. Implementa autenticación, CRUD de eventos y visualización en calendario mediante FullCalendar.
+Sistema web para la gestión y visualización de un calendario académico. Permite crear, editar, eliminar y mostrar eventos en un calendario visual con FullCalendar. Incluye funcionalidades para un panel de administración seguro con login y sistema de colores personalizados para los eventos.
 
 ---
 
-## 🚀 Tecnologías
+## 🚀 Tecnologías utilizadas
 
-- **Backend**: Node.js, Express
-- **Frontend**: EJS, Tailwind CSS, FullCalendar
-- **Base de Datos**: MySQL
-- **Autenticación**: express-session + bcrypt
-- **Deploy**: Railway
-- **Gestión de dependencias**: dotenv, method-override, express-validator, connect-flash
-
----
-
-## 📦 Instalación local
-
-1. Clona el repositorio:
-   ```bash
-   git clone https://github.com/usuario/calendario-academico.git
-   cd calendario-academico
-   ```
-
-2. Instala dependencias:
-   ```bash
-   npm install
-   ```
-
-3. Crea un archivo `.env` con las variables necesarias:
-   ```
-   DB_HOST=localhost
-   DB_USER=root
-   DB_PASS=
-   DB_NAME=db_name
-   PORT=3000
-   SESSION_SECRET=session_secret
-   ```
-
-4. Inicia el servidor:
-   ```bash
-   npm start
-   ```
+- Node.js
+- Express
+- EJS
+- MySQL (Railway)
+- Tailwind CSS v4
+- FullCalendar
+- FontAwesome
+- dotenv, express-session, bcrypt, connect-flash, cookie-parser, express-validator, method-override
 
 ---
 
-## 🌐 Deploy en Railway
-
-- El backend está desplegado en:  
-  [`https://calendarioacademico-production.up.railway.app`](https://calendarioacademico-production.up.railway.app)
-
-- Se conectó correctamente a una base de datos MySQL creada en Railway y configurada mediante variables de entorno.
-
-- Se integró un script `/admin/importar-db` que importa el archivo `calendario_academico.sql` y recrea las tablas necesarias.
-
----
-
-## 🛠 Funcionalidades
-
-- Login para administradores
-- Vista de Dashboard
-- CRUD de eventos:
-  - Crear eventos con fecha, título y color personalizado
-  - Editar y eliminar eventos
-- Almacenamiento de colores favoritos con `localStorage`
-- Visualización con FullCalendar
-- Vista responsive y estética académica
-- Importación de base de datos desde SQL en entorno Railway
-
----
-
-## 📁 Estructura de carpetas
+## 📁 Estructura principal
 
 ```
 📁 src
@@ -89,22 +35,50 @@ Sistema web de calendario académico desarrollado con Node.js, Express y MySQL. 
 
 ---
 
-## 📑 Scripts
+## 🎨 Estética visual
 
-```json
-"scripts": {
-  "start": "node ./src/index.js",
-  "dev": "nodemon ./src/index.js"
-}
-```
+- Paleta de colores minimalista con tonos oscuros y color complementario menta.
+- Fuente personalizada para títulos: `Bebas Neue`.
+- Fuente para textos generales: `Ubuntu`.
+- Vista responsive optimizada para pantallas pequeñas.
+- FullCalendar completamente personalizado con eventos que pintan el día completo.
 
 ---
 
-## 🧠 Consideraciones
+## 🔐 Autenticación
 
-- En Railway, los campos `DATE` pueden guardar la fecha con desfase si no se ajusta la zona horaria. Ya se solucionó configurando `new Date(fecha + "T00:00:00")` en el código.
-- El archivo `.env` debe configurarse manualmente en Railway.
-- El archivo `calendario_academico.sql` se importa desde la ruta protegida `/admin/importar-db`.
+- El acceso al panel de administración (`/admin/dashboard`, `/admin/eventos`, etc.) está protegido por middleware `isAuthenticated`.
+- Las contraseñas están cifradas con `bcrypt`.
+- El sistema incluye sesiones y mensajes flash.
+
+---
+
+## 🗃️ Base de datos
+
+- Se utiliza MySQL (Railway) con variables de entorno para proteger credenciales.
+- Tablas principales: `admin_users`, `eventos`.
+- El sistema soporta favoritos de colores usando `localStorage` (en creación y edición de eventos).
+
+---
+
+## 🌐 Deploy en Railway
+
+- El backend está desplegado en:  
+  [https://calendarioacademico-production.up.railway.app](https://calendarioacademico-production.up.railway.app)
+- Se conectó correctamente a una base de datos MySQL creada en Railway y configurada mediante variables de entorno.
+
+---
+
+## 📌 Versión actual
+
+**v3.0.0**
+
+Incluye:
+- CRUD completo de eventos
+- Vista con FullCalendar y lista responsiva
+- Sistema de colores favoritos
+- Estética personalizada
+- Protección de rutas
 
 ---
 

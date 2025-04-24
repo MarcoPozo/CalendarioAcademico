@@ -29,6 +29,7 @@ router.post("/admin/eventos/:id/edit", isAuthenticated, eventoValidator, actuali
 router.post("/admin/eventos/:id/delete", isAuthenticated, eliminarEventoController);
 
 // Util DB
+/* 
 router.get("/admin/importar-db", async (req, res) => {
   try {
     const resultado = await importarBaseDeDatos();
@@ -37,6 +38,7 @@ router.get("/admin/importar-db", async (req, res) => {
     console.error(err);
     res.status(500).send("❌ Error al importar la base de datos");
   }
-});
+}); 
+*/
 
 export default router;
