@@ -16,6 +16,7 @@ export async function importarBaseDeDatos() {
     password: process.env.DB_PASS,
     database: process.env.DB_NAME,
     multipleStatements: true,
+    timezone: "-05:00",
   });
 
   await connection.query(contenidoSQL);

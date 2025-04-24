@@ -5,4 +5,5 @@ export const db = createPool({
   user: process.env.DB_USER,
   password: process.env.DB_PASS,
   database: process.env.DB_NAME,
+  timezone: "-05:00",
 });
