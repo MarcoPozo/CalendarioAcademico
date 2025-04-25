@@ -56,6 +56,7 @@
     --font-titulo: "Bebas Neue", sans-serif;
     --color-fondo-principal: #0b0f19;
     --color-fondo-secundario: #1f2937;
+    --color-lunar-principal: #d1d5db;
     --color-acento-lunar: #38bdf8;
     --color-acento-cosmico: #8b5cf6;
     --color-texto-principal: #f9fafb;
@@ -348,6 +349,9 @@
   .border-collapse {
     border-collapse: collapse;
   }
+  .transform {
+    transform: var(--tw-rotate-x,) var(--tw-rotate-y,) var(--tw-rotate-z,) var(--tw-skew-x,) var(--tw-skew-y,);
+  }
   .cursor-pointer {
     cursor: pointer;
   }
@@ -473,6 +477,9 @@
   .border-white {
     border-color: var(--color-white);
   }
+  .bg-\[var\(--color-acento-cosmico\)\] {
+    background-color: var(--color-acento-cosmico);
+  }
   .bg-\[var\(--color-acento-lunar\)\] {
     background-color: var(--color-acento-lunar);
   }
@@ -484,6 +491,12 @@
   }
   .bg-\[var\(--color-fondo-secundario\)\] {
     background-color: var(--color-fondo-secundario);
+  }
+  .bg-\[var\(--color-hover-glow\)\] {
+    background-color: var(--color-hover-glow);
+  }
+  .bg-\[var\(--color-lunar-principal\)\] {
+    background-color: var(--color-lunar-principal);
   }
   .bg-blue-600 {
     background-color: var(--color-blue-600);
@@ -659,6 +672,41 @@
       --tw-ring-color: var(--color-acento-cosmico);
     }
   }
+  .hover\:bg-\[\#\#5a3aa5\] {
+    &:hover {
+      @media (hover: hover) {
+        background-color: ##5a3aa5;
+      }
+    }
+  }
+  .hover\:bg-\[\#5a3aa5\] {
+    &:hover {
+      @media (hover: hover) {
+        background-color: #5a3aa5;
+      }
+    }
+  }
+  .hover\:bg-\[\#8b5cf6\] {
+    &:hover {
+      @media (hover: hover) {
+        background-color: #8b5cf6;
+      }
+    }
+  }
+  .hover\:bg-\[8b5cf6\] {
+    &:hover {
+      @media (hover: hover) {
+        background-color: 8b5cf6;
+      }
+    }
+  }
+  .hover\:bg-\[hover\:bg-\[\#5a3aa5\]\] {
+    &:hover {
+      @media (hover: hover) {
+        background-color: bg-[#5a3aa5];
+      }
+    }
+  }
   .hover\:bg-\[var\(--color-fondo-principal\)\] {
     &:hover {
       @media (hover: hover) {
@@ -798,6 +846,26 @@
     }
   }
 }
+@property --tw-rotate-x {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-rotate-y {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-rotate-z {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-skew-x {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-skew-y {
+  syntax: "*";
+  inherits: false;
+}
 @property --tw-space-y-reverse {
   syntax: "*";
   inherits: false;
@@ -894,6 +962,11 @@
 @layer properties {
   @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
     *, ::before, ::after, ::backdrop {
+      --tw-rotate-x: initial;
+      --tw-rotate-y: initial;
+      --tw-rotate-z: initial;
+      --tw-skew-x: initial;
+      --tw-skew-y: initial;
       --tw-space-y-reverse: 0;
       --tw-space-x-reverse: 0;
       --tw-border-style: solid;

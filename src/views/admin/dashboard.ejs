@@ -1,4 +1,5 @@
-<%- include("../partials/header") %> <%- include("../partials/navbarAdmin") %>
+<%- include("../partials/header") %> 
+<%- include("../partials/navbarAdmin") %>
 
 <main class="container py-10">
   <h1 class="text-3xl font-titulo mb-6">Bienvenido al panel de administración</h1>
@@ -10,6 +11,15 @@
       <a href="/admin/eventos"
         class="inline-block mt-4 px-4 py-2 bg-[var(--color-boton-cta)] hover:bg-[var(--color-hover-glow)] text-white rounded transition text-sm font-semibold">
         Ir a Eventos
+      </a>
+    </div>
+
+    <div class="card text-center">
+      <h2 class="text-xl font-titulo text-[var(--color-acento-lunar)] mb-2">Eventos Masivos</h2>
+      <p class="text-[var(--color-texto-secundario)] text-sm">Agrega múltiples eventos al calendario fácilmente desde un formulario.</p>
+      <a href="/admin/eventos/masivos"
+        class="inline-block mt-4 px-4 py-2 bg-[var(--color-boton-cta)] hover:bg-[var(--color-hover-glow)] text-white rounded transition text-sm font-semibold">
+        Crear Eventos Masivos
       </a>
     </div>
   </div>
