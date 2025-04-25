@@ -1,3 +1,4 @@
+
 # 📅 Calendario Académico
 
 Sistema web para la gestión y visualización de un calendario académico. Permite crear, editar, eliminar y mostrar eventos en un calendario visual con FullCalendar. Incluye funcionalidades para un panel de administración seguro con login y sistema de colores personalizados para los eventos.
@@ -69,16 +70,26 @@ Sistema web para la gestión y visualización de un calendario académico. Permi
 
 ---
 
+## ✅ Funcionalidades destacadas
+
+- CRUD completo de eventos.
+- Vista de calendario y lista con diseño responsive.
+- Sistema de colores personalizados con favoritos.
+- Inserción de eventos masivos (por múltiples días).
+- Eliminación múltiple y eliminación total desde el panel de eventos.
+- Protección de rutas, validación de formularios y mensajes flash.
+
+---
+
 ## 📌 Versión actual
 
-**v3.0.0**
+**v4.0.0**
 
 Incluye:
-- CRUD completo de eventos
-- Vista con FullCalendar y lista responsiva
-- Sistema de colores favoritos
-- Estética personalizada
-- Protección de rutas
+- ✨ Eventos masivos con vista dedicada.
+- 🧹 Eliminación múltiple y total desde el panel de eventos.
+- 🛠️ Fix de error al no existir eventos al eliminar todos (JavaScript protegido).
+- 🧪 Mejoras visuales y de usabilidad.
 
 ---
 
@@ -86,5 +97,3 @@ Incluye:
 
 Desarrollado por **MoonStudio**  
 ✉️ moonstudioopro@gmail.com
-
----
