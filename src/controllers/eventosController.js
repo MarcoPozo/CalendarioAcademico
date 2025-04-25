@@ -49,7 +49,7 @@ export const crearEvento = async (req, res) => {
     req.flash("flash", {
       type: "success",
       title: "Evento creado",
-      message: "El evento fue guardado exitosamente.",
+      message: "El evento fue guardado exitosamente",
     });
 
     res.redirect("/admin/eventos");

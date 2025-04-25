@@ -1,0 +1,64 @@
+<%- include("../partials/header") %>
+<%- include("../partials/navbarAdmin") %>
+
+<main class="container py-10 space-y-10">
+  <h1 class="text-4xl font-titulo text-center mb-5">Crear eventos masivos</h1>
+
+  <!-- Formulario -->
+  <form action="/admin/eventos/masivos" method="POST" class="bg-[var(--color-fondo-secundario)] p-6 rounded-lg shadow-soft border border-gray-600 space-y-4">
+    <div class="grid md:grid-cols-3 gap-4">
+      <div>
+        <label for="dias" class="block text-sm mb-1 text-[var(--color-texto-secundario)]">Días (separados por coma)</label>
+        <input type="text" name="dias" id="dias" placeholder="Ej: 6,8,17,18,19" required class="w-full px-3 py-2 bg-[var(--color-fondo-principal)] border border-gray-600 text-white rounded focus:ring-2 focus:ring-[var(--color-acento-lunar)]" />
+      </div>
+
+      <div>
+        <label for="mes" class="block text-sm mb-1 text-[var(--color-texto-secundario)]">Mes</label>
+        <select name="mes" id="mes" required class="w-full px-3 py-2 bg-[var(--color-fondo-principal)] border border-gray-600 text-white rounded focus:ring-2 focus:ring-[var(--color-acento-lunar)]">
+          <option value="" disabled selected>Seleccione un mes</option>
+          <option value="1">Enero</option>
+          <option value="2">Febrero</option>
+          <option value="3">Marzo</option>
+          <option value="4">Abril</option>
+          <option value="5">Mayo</option>
+          <option value="6">Junio</option>
+          <option value="7">Julio</option>
+          <option value="8">Agosto</option>
+          <option value="9">Septiembre</option>
+          <option value="10">Octubre</option>
+          <option value="11">Noviembre</option>
+          <option value="12">Diciembre</option>
+        </select>
+      </div>
+
+      <div>
+        <label for="anio" class="block text-sm mb-1 text-[var(--color-texto-secundario)]">Año</label>
+        <input type="number" name="anio" id="anio" value="2025" required class="w-full px-3 py-2 bg-[var(--color-fondo-principal)] border border-gray-600 text-white rounded focus:ring-2 focus:ring-[var(--color-acento-lunar)]" />
+      </div>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-4">
+      <div>
+        <label for="titulo" class="block text-sm mb-1 text-[var(--color-texto-secundario)]">Título del evento</label>
+        <input type="text" name="titulo" id="titulo" placeholder="Ej: Feriado" required class="w-full px-3 py-2 bg-[var(--color-fondo-principal)] border border-gray-600 text-white rounded focus:ring-2 focus:ring-[var(--color-acento-lunar)]" />
+      </div>
+
+      <div>
+        <label class="block text-sm mb-1 text-[var(--color-texto-secundario)]">Color</label>
+        <input type="color" id="colorPicker" class="w-full h-10 rounded border-0 cursor-pointer" />
+        <div id="coloresFavoritos" class="flex flex-wrap gap-2 mt-2"></div>
+        <button type="button" onclick="agregarColorFavorito()" class="mt-2 text-xs bg-[var(--color-boton-cta)] text-white px-2 py-1 rounded hover:bg-[var(--color-hover-glow)]">Añadir color favorito</button>
+        <input type="hidden" name="color" id="colorFinal" />
+      </div>
+    </div>
+
+    <button type="submit" class="mt-4 bg-[var(--color-boton-cta)] hover:bg-[var(--color-hover-glow)] text-white px-6 py-2 rounded font-semibold transition">
+      Crear Eventos
+    </button>
+  </form>
+</main>
+
+<!-- Script Eventos -->
+<script src="/js/eventos.js"></script>
+<!-- Footer -->
+<%- include("../partials/footer") %>

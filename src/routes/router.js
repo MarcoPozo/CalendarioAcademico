@@ -5,8 +5,9 @@ import { loginValidator } from "../middlewares/authMiddleware.js";
 import { renderDashboard } from "../controllers/adminController.js";
 import { isAuthenticated } from "../middlewares/authenticatedMiddleware.js";
 import { renderEventos, crearEvento, renderEditarEvento, actualizarEvento, eliminarEventoController } from "../controllers/eventosController.js";
-import { importarBaseDeDatos } from "../utils/importDb.js";
 import { eventoValidator } from "../middlewares/eventosMiddleware.js";
+import { renderEventosMasivos, crearEventosMasivos } from "../controllers/eventosMasivosController.js";
+// import { importarBaseDeDatos } from "../utils/importDb.js";
 
 const router = Router();
 
@@ -27,6 +28,10 @@ router.post("/admin/eventos", isAuthenticated, eventoValidator, crearEvento);
 router.get("/admin/eventos/:id/edit", isAuthenticated, renderEditarEvento);
 router.post("/admin/eventos/:id/edit", isAuthenticated, eventoValidator, actualizarEvento);
 router.post("/admin/eventos/:id/delete", isAuthenticated, eliminarEventoController);
+
+// Eventos Masivos
+router.get("/admin/eventos/masivos", isAuthenticated, renderEventosMasivos);
+router.post("/admin/eventos/masivos", isAuthenticated, crearEventosMasivos);
 
 // Util DB
 /* 
