@@ -46,3 +46,15 @@ export const editarEvento = async (id, fecha, titulo, color) => {
 export const eliminarEvento = async (id) => {
   await db.execute(`DELETE FROM eventos WHERE id = ?`, [id]);
 };
+
+// Eliminar Eventos Seleccionados
+export async function eliminarVariosEventos(ids) {
+  const placeholders = ids.map(() => "?").join(",");
+  const sql = `DELETE FROM eventos WHERE id IN (${placeholders})`;
+  return db.query(sql, ids);
+}
+
+// Eliminar Todos Eventos
+export async function eliminarTodosEventos() {
+  return db.query("DELETE FROM eventos");
+}

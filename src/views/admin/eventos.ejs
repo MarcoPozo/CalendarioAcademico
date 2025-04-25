@@ -1,4 +1,4 @@
-<%- include("../partials/header") %>
+<%- include("../partials/header") %> 
 <%- include("../partials/navbarAdmin") %>
 
 <main class="container py-10 space-y-10">
@@ -20,15 +20,10 @@
       <div>
         <label class="block text-sm mb-1 text-[var(--color-texto-secundario)]">Color</label>
         <input type="color" id="colorPicker" class="w-full h-10 rounded border-0 cursor-pointer" />
-
-        <!-- Colores favoritos -->
         <div id="coloresFavoritos" class="flex gap-2 mt-2"></div>
-
-        <!-- Botón para añadir -->
         <button type="button" onclick="agregarColorFavorito()" class="mt-2 text-xs bg-[var(--color-acento-cosmico)] text-white px-2 py-1 rounded hover:bg-[#5a3aa5]">
           <i class="fa-solid fa-plus text-sm"></i> Añadir color favorito
         </button>
-
         <input type="hidden" name="color" id="colorFinal" />
       </div>
     </div>
@@ -37,8 +32,27 @@
   </form>
 
   <!-- Lista de eventos -->
-  <div class="bg-[var(--color-fondo-secundario)] p-6 rounded-lg shadow-soft border border-gray-600">
-    <h2 class="text-2xl font-titulo text-[var(--color-acento-lunar)] mb-4">Eventos registrados</h2>
+  <div class="bg-[var(--color-fondo-secundario)] p-6 rounded-lg shadow-soft border border-gray-600 space-y-6">
+    <div class="flex justify-between items-center">
+      <h2 class="text-2xl font-titulo text-[var(--color-acento-lunar)]">Eventos registrados</h2>
+
+      <% if (eventos.length > 0) { %>
+      <div class="flex gap-2">
+        <form action="/admin/eventos/eliminar-seleccionados" method="POST" id="formEliminarSeleccionados">
+          <input type="hidden" name="idsSeleccionados" id="idsSeleccionados" />
+          <button type="submit" class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded text-sm" onclick="return confirmarEliminarSeleccionados()">
+            Eliminar seleccionados
+          </button>
+        </form>
+
+        <form action="/admin/eventos/eliminar-todos" method="POST" id="formEliminarTodos">
+          <button type="submit" class="bg-red-700 hover:bg-red-800 text-white px-4 py-2 rounded text-sm" onclick="return confirmarEliminarTodos()">
+            Eliminar todos
+          </button>
+        </form>
+      </div>
+      <% } %>
+    </div>
 
     <% if (eventos.length === 0) { %>
     <p class="text-sm text-[var(--color-texto-secundario)]">No hay eventos aún.</p>
@@ -47,17 +61,23 @@
       <table class="min-w-full text-sm text-left border border-gray-600">
         <thead class="bg-[var(--color-fondo-principal)] text-[var(--color-texto-principal)] border-b border-gray-700">
           <tr>
+            <th class="px-4 py-2">
+              <input type="checkbox" id="selectAll" />
+            </th>
             <th class="px-4 py-2">Fecha</th>
             <th class="px-4 py-2">Título</th>
             <th class="px-4 py-2">Color</th>
             <th class="px-4 py-2">Creado</th>
             <th class="px-4 py-2">Modificado</th>
-            <th class="px-4 py-2">Acciónes</th>
+            <th class="px-4 py-2">Acciones</th>
           </tr>
         </thead>
         <tbody>
           <% eventos.forEach(evento => { %>
           <tr class="border-t border-gray-700 hover:bg-[var(--color-fondo-principal)]">
+            <td class="px-4 py-2">
+              <input type="checkbox" class="seleccion-evento" value="<%= evento.id %>" />
+            </td>
             <td class="px-4 py-2 text-xs text-[var(--color-texto-secundario)]">
               <%= new Date(evento.fecha).toLocaleDateString("es-EC", {
                 weekday: "long",
@@ -105,7 +125,9 @@
   </div>
 </main>
 
-<!-- Script Eventos -->
+<!-- Script Colores -->
 <script src="/js/eventos.js"></script>
+<!-- Script Gestion Seleccion -->
+<script src="/js/eventosGestion.js"></script>
 <!-- Footer -->
 <%- include("../partials/footer") %>

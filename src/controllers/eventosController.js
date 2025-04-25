@@ -1,5 +1,5 @@
 import { validationResult } from "express-validator";
-import { guardarEvento, obtenerEventos, getEventoById, editarEvento, eliminarEvento } from "../models/eventosModel.js";
+import { guardarEvento, obtenerEventos, getEventoById, editarEvento, eliminarEvento, eliminarTodosEventos, eliminarVariosEventos } from "../models/eventosModel.js";
 
 // Render Eventos
 export const renderEventos = async (req, res) => {
@@ -153,3 +153,46 @@ export const eliminarEventoController = async (req, res) => {
     res.redirect("/admin/eventos");
   }
 };
+
+export async function eliminarEventosSeleccionados(req, res) {
+  const ids = req.body.idsSeleccionados?.split(",").map((id) => parseInt(id)) || [];
+  if (ids.length === 0) return res.redirect("/admin/eventos");
+
+  try {
+    await eliminarVariosEventos(ids);
+    req.flash("flash", {
+      type: "success",
+      title: "Eventos eliminados",
+      message: "Los eventos se eliminaron correctamente",
+    });
+    res.redirect("/admin/eventos");
+  } catch (error) {
+    console.error("Error al eliminar eventos seleccionados:", error);
+    req.flash("flash", {
+      type: "error",
+      title: "Error interno",
+      message: "No se pudo eliminar los eventos",
+    });
+    res.redirect("/admin/eventos");
+  }
+}
+
+export async function eliminarTodosLosEventos(req, res) {
+  try {
+    await eliminarTodosEventos();
+    req.flash("flash", {
+      type: "success",
+      title: "Eventos eliminados",
+      message: "Se eliminaron todos los eventos",
+    });
+    res.redirect("/admin/eventos");
+  } catch (error) {
+    console.error("Error al eliminar todos los eventos:", error);
+    req.flash("flash", {
+      type: "error",
+      title: "Error interno",
+      message: "No se pudo eliminar todos los eventos",
+    });
+    res.redirect("/admin/eventos");
+  }
+}
