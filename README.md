@@ -67,6 +67,8 @@ Sistema web para la gestión y visualización de un calendario académico. Permi
 - El backend está desplegado en:  
   [https://calendarioacademico-production.up.railway.app](https://calendarioacademico-production.up.railway.app)
 - Se conectó correctamente a una base de datos MySQL creada en Railway y configurada mediante variables de entorno.
+- Genera tu contraseña hasheada e insertala en la base de datos  con esta app web:
+  [Acceder al Generador Bcrypt Online - MoonStudio](https://bcryptpassgenerator.netlify.app/)
 
 ---
 
